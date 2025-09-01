@@ -32,15 +32,18 @@ namespace TaskManagerSample.API.Controllers
             return _mapper.Map<IEnumerable<UserViewModel>>(await _userRepository.GetList());
         }
 
-        //[HttpGet("{id:guid}")]
-        //public async Task<ActionResult<TaskViewModel>> GetById(Guid id)
-        //{
-        //    var task = await _taskRepository.GetById(id);
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<TaskViewModel>> GetById(Guid id)
+        {
+            return new TaskViewModel();
+            /*
+            var task = await _taskRepository.GetById(id);
 
-        //    if (task == null) return NotFound();
+            if (task == null) return NotFound();
 
-        //    return _mapper.Map<TaskViewModel>(task);
-        //}
+            return _mapper.Map<TaskViewModel>(task);
+            */
+        }
 
         ////[ClaimsAuthorize("Fornecedor", "Adicionar")]
         //[AllowAnonymous]
